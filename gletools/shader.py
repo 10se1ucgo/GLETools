@@ -368,7 +368,7 @@ class ShaderProgram(GLObject, Context):
                 shader = types[typename]
                 shaders.append(shader(source, filename))
             return cls(*shaders, **variables)
-        except (cls.Compile, cls.Link, cls.Validate), error:
+        except (cls.Compile, cls.Link, cls.Validate) as error:
             matcher = re.compile('(\d+)\((\d+)\) : (.+)')
             errors = []
             mapping = dict((n, filename) for filename, n in mapping.items())
