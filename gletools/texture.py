@@ -312,7 +312,8 @@ class Texture(Context):
         self.get_data(self.buffer)
         glFinish()
 
-    def __getitem__(self, (x, y)):
+    def __getitem__(self, x_y):
+        x, y = x_y
         x, y = x%self.width, y%self.height
 
         channels = self.spec.channels.count
@@ -323,7 +324,8 @@ class Texture(Context):
             end = pos + channels
             return self.buffer[pos:end]
 
-    def __setitem__(self, (x, y), value):
+    def __setitem__(self, x_y, value):
+        x, y = x_y
         x, y = x%self.width, y%self.height
 
         channels = self.spec.channels.count
