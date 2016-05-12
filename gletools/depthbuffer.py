@@ -8,7 +8,6 @@
 from __future__ import with_statement
 
 from ctypes import byref
-from contextlib import nested
 
 from gletools.gl import *
 from .util import Context
